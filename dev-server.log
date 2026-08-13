@@ -1,0 +1,20 @@
+
+> movemore-games@1.0.0 dev
+> npm run dev -w @movemore/landing
+
+
+> @movemore/landing@1.0.0 predev
+> node ../../scripts/ensure-dist-games.mjs
+
+
+> @movemore/landing@1.0.0 dev
+> vite
+
+
+  VITE v4.5.14  ready in 224 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: use --host to expose
+3:12:18 PM [vite] vite.config.js changed, restarting server...
+3:12:19 PM [vite] server restarted.
+3:15:51 PM [vite] page reload dist/index.html

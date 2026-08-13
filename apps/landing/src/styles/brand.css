@@ -1,0 +1,11 @@
+:root {
+  /* Override these when your design draft is ready */
+  --brand-primary: #22d3ee;
+  --brand-accent: #fbbf24;
+  --brand-surface: #0a0f1a;
+  --brand-muted: #94a3b8;
+  --brand-glow: rgba(34, 211, 238, 0.35);
+  --phosphor: #39ff14;
+  --font-display: 'Bebas Neue', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+}

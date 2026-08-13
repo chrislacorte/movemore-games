@@ -1,0 +1,44 @@
+{
+  "name": "movemore-games",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "workspaces": [
+    "apps/*",
+    "games/*"
+  ],
+  "scripts": {
+    "postinstall": "npm run postinstall -w @movemore/fruity-samurai --if-present",
+    "dev": "npm run dev -w @movemore/landing",
+    "dev:landing": "npm run dev -w @movemore/landing",
+    "dev:fruitysamurai": "npm run dev -w @movemore/fruity-samurai",
+    "dev:pingpong": "npm run dev -w @movemore/pingpong",
+    "dev:shooter": "npm run dev -w @movemore/shooter",
+    "dev:snake": "npm run dev -w @movemore/snake",
+    "dev:pacman": "npm run dev -w @movemore/pacman",
+    "dev:tetris": "npm run dev -w @movemore/tetris",
+    "dev:lightpainter": "npm run dev -w @movemore/lightpainter",
+    "build:all": "node scripts/build-all.mjs",
+    "build:landing": "node scripts/build-game.mjs landing",
+    "build:fruitysamurai": "node scripts/build-game.mjs fruitysamurai",
+    "build:pingpong": "node scripts/build-game.mjs pingpong",
+    "build:shooter": "node scripts/build-game.mjs shooter",
+    "build:snake": "node scripts/build-game.mjs snake",
+    "build:pacman": "node scripts/build-game.mjs pacman",
+    "build:tetris": "node scripts/build-game.mjs tetris",
+    "build:lightpainter": "node scripts/build-game.mjs lightpainter",
+    "pages:dev": "npm run build:all && wrangler pages dev ./dist",
+    "deploy": "node scripts/deploy.mjs all",
+    "deploy:landing": "node scripts/deploy.mjs landing",
+    "deploy:fruitysamurai": "node scripts/deploy.mjs fruitysamurai",
+    "deploy:pingpong": "node scripts/deploy.mjs pingpong",
+    "deploy:shooter": "node scripts/deploy.mjs shooter",
+    "deploy:snake": "node scripts/deploy.mjs snake",
+    "deploy:pacman": "node scripts/deploy.mjs pacman",
+    "deploy:tetris": "node scripts/deploy.mjs tetris",
+    "deploy:lightpainter": "node scripts/deploy.mjs lightpainter"
+  },
+  "devDependencies": {
+    "wrangler": "^4.14.0"
+  }
+}

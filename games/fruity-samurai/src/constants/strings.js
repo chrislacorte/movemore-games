@@ -1,0 +1,55 @@
+/** Central UI copy — English */
+export const STR = {
+  appTitle: 'FRUITY SAMURAI',
+  appTitleAccent: 'FRUITY',
+  appTitleMain: 'SAMURAI',
+
+  chooseTheme: 'Choose Theme',
+  chooseScene: 'Choose Scene',
+  chooseBackground: 'Choose Background',
+  prevScene: 'Previous scene',
+  nextScene: 'Next scene',
+  background: 'Background',
+  chooseMode: 'Choose Mode',
+  chooseMultiplayer: 'Multiplayer',
+  startGame: 'START GAME',
+  playWithMouse: 'Play with your mouse',
+  playAgain: 'PLAY AGAIN',
+  menu: 'MENU',
+
+  points: 'Points',
+  best: 'BEST',
+  lives: 'Lives',
+  combo: 'Combo',
+  level: 'Level',
+
+  gameOver: 'GAME OVER',
+  yourScore: 'Your Score',
+  levelComplete: 'Level Complete!',
+
+  loadingCamera: 'Loading camera…',
+  cameraError: 'Camera error',
+  cameraDenied: 'Camera access denied. Use mouse control or allow camera in settings.',
+  inputHint: 'Slice with finger or mouse · Slice START to play',
+
+  musicOn: 'Music',
+  musicOff: 'Muted',
+  nextTrack: 'Track',
+
+  recipeTitle: 'Recipe',
+  bottleTitle: 'Bottle',
+
+  multiplayerBadge: '2P',
+  player1: 'Player 1',
+  player2: 'Player 2',
+  timeLeft: 'Time',
+  glassTitle: 'Glass',
+  rememberFruit: 'Remember',
+  glassFilled: 'Glass filled!',
+  coopSuccess: 'Team success!',
+  challengeWinner: 'Winner',
+  challengeTie: 'Tie!',
+  challengeResults: 'Results',
+  fruitsSliced: 'Fruits',
+  backToHome: 'All Games',
+}

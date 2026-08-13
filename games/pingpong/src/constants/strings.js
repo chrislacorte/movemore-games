@@ -1,0 +1,26 @@
+export const STRINGS = {
+  title: 'PING PONG',
+  vsLine: 'YOU vs AI',
+  subtitle:
+    'Move your paddle with your hand (webcam + MediaPipe). The ball comes straight at you — webcam as background or picture-in-picture.',
+  viewBackground: 'Background',
+  viewPip: 'Mini',
+  playerLabel: 'YOU',
+  enemyLabel: 'AI',
+  startGame: 'START GAME',
+  calibrate: 'Calibration',
+  calibrateHint:
+    'Hold a hand visible in frame — your paddle follows your wrist.',
+  skipCalibrate: 'Skip (Space)',
+  youWin: 'YOU WIN!',
+  youLose: 'YOU LOSE',
+  playAgain: 'Play Again',
+  rally: 'Rally',
+  cameraDenied: 'Camera blocked — allow access in your browser.',
+  cameraError: 'Camera unavailable — use HTTPS or localhost.',
+  loadingPose: 'Loading camera & pose model…',
+  paddleReady: 'Paddle active',
+  serving: 'Serving…',
+  fallback: 'Without camera: use hand tracking when available',
+  backToHome: 'All Games',
+}

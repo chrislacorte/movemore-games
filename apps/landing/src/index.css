@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html,
+  body,
+  #root {
+    @apply min-h-full;
+  }
+
+  body {
+    @apply bg-brand-surface font-body text-white antialiased;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-gradient-to-r from-cyan-300 via-white to-amber-300 bg-clip-text text-transparent;
+  }
+}

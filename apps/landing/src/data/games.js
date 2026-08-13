@@ -1,0 +1,131 @@
+export const CATEGORIES = [
+  {
+    id: 'retrogames',
+    title: 'Retro Games',
+    description: 'Classic arcade reels — hand-controlled with a cinematic film look.',
+  },
+  {
+    id: 'arcade',
+    title: 'Arcade',
+    description: 'Motion-controlled action — slice, aim, rally, and compete.',
+  },
+]
+
+export const GAMES = [
+  {
+    id: 'snake',
+    category: 'retrogames',
+    title: 'Hand Snake',
+    description:
+      'Your finger is the snake head. The cinematic tail follows as you collect food through the maze.',
+    control: 'Index finger',
+    href: '/snake/',
+    image: '/cards/snake.png',
+    badge: 'Trail',
+    difficulty: 'Easy',
+    difficultyLevel: 1,
+    accent: 'from-lime-400/30 to-emerald-900/60',
+    border: 'border-lime-400/40',
+    glow: 'rgba(132, 204, 22, 0.35)',
+  },
+  {
+    id: 'tetris',
+    category: 'retrogames',
+    title: 'Falling Blocks',
+    description:
+      'Inspired by Tetris — move blocks with one hand, rotate with open→close, and swipe down with the other hand to fall faster.',
+    control: 'Two hands: palm + down swipe',
+    href: '/tetris/',
+    image: '/cards/tetris.png',
+    badge: 'Stack',
+    difficulty: 'Medium',
+    difficultyLevel: 2,
+    accent: 'from-cyan-400/30 to-teal-900/60',
+    border: 'border-cyan-400/40',
+    glow: 'rgba(57, 255, 20, 0.35)',
+  },
+  {
+    id: 'fruitysamurai',
+    category: 'arcade',
+    title: 'Fruity Samurai',
+    description:
+      'Slice flying fruits with your hands. Arcade, recipes, levels, and multiplayer modes.',
+    control: 'Hand tracking',
+    href: '/fruitysamurai/',
+    image: '/cards/fruitysamurai.png',
+    badge: 'Slice',
+    difficulty: 'Easy',
+    difficultyLevel: 1,
+    accent: 'from-lime-400/30 to-emerald-900/60',
+    border: 'border-lime-400/40',
+    glow: 'rgba(132, 204, 22, 0.35)',
+  },
+  {
+    id: 'pacman',
+    category: 'arcade',
+    title: 'Hand Pacman',
+    description:
+      'Point your finger to steer Pacman through the maze. Eat pellets, dodge ghosts, grab power-ups.',
+    control: 'Finger direction',
+    href: '/pacman/',
+    image: '/cards/pacman.png',
+    badge: 'Maze',
+    difficulty: 'Medium',
+    difficultyLevel: 2,
+    accent: 'from-amber-400/30 to-orange-900/60',
+    border: 'border-amber-400/40',
+    glow: 'rgba(255, 176, 0, 0.35)',
+  },
+  {
+    id: 'shooter',
+    category: 'arcade',
+    title: 'Hand Shooter',
+    description:
+      'Aim with your fingertip and fire by pinching thumb and index finger together.',
+    control: 'Pinch to fire',
+    href: '/shooter/',
+    image: '/cards/shooter.png',
+    badge: 'Aim',
+    difficulty: 'Medium',
+    difficultyLevel: 2,
+    accent: 'from-amber-400/30 to-orange-900/60',
+    border: 'border-amber-400/40',
+    glow: 'rgba(251, 191, 36, 0.35)',
+  },
+  {
+    id: 'lightpainter',
+    category: 'arcade',
+    title: 'Light Painter',
+    description:
+      'Paint glowing pictures in the air with your index finger. Free draw or trace shapes and letters.',
+    control: 'Index finger',
+    href: '/lightpainter/',
+    image: '/cards/lightpainter.png',
+    badge: 'Paint',
+    difficulty: 'Easy',
+    difficultyLevel: 1,
+    accent: 'from-violet-400/30 to-indigo-900/60',
+    border: 'border-violet-400/40',
+    glow: 'rgba(139, 108, 255, 0.35)',
+  },
+  {
+    id: 'pingpong',
+    category: 'arcade',
+    title: 'Ping Pong',
+    description:
+      'First-person pong against AI. Move your paddle with your wrist in a pseudo-3D arena.',
+    control: 'Wrist pose',
+    href: '/pingpong/',
+    image: '/cards/pingpong.png',
+    badge: 'Rally',
+    difficulty: 'Hard',
+    difficultyLevel: 3,
+    accent: 'from-cyan-400/30 to-blue-900/60',
+    border: 'border-cyan-400/40',
+    glow: 'rgba(34, 211, 238, 0.35)',
+  },
+]
+
+export function gamesByCategory(categoryId) {
+  return GAMES.filter((game) => game.category === categoryId)
+}
