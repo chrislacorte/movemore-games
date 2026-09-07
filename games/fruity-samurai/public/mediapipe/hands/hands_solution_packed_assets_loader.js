@@ -26,7 +26,9 @@
         err('warning: you defined Module.locateFilePackage, that has been renamed to Module.locateFile (using your locateFilePackage for now)');
       }
       var REMOTE_PACKAGE_NAME = Module['locateFile'] ? Module['locateFile'](REMOTE_PACKAGE_BASE, '') : REMOTE_PACKAGE_BASE;
-var REMOTE_PACKAGE_SIZE = metadata['remote_package_size'];
+
+      var REMOTE_PACKAGE_SIZE = metadata['remote_package_size'];
+      var PACKAGE_UUID = metadata['package_uuid'];
 
       function fetchRemotePackage(packageName, packageSize, callback, errback) {
         if (typeof process === 'object' && typeof process.versions === 'object' && typeof process.versions.node === 'string') {
@@ -110,8 +112,8 @@ var REMOTE_PACKAGE_SIZE = metadata['remote_package_size'];
 Module['FS_createPath']("/", "third_party", true, true);
 Module['FS_createPath']("/third_party", "mediapipe", true, true);
 Module['FS_createPath']("/third_party/mediapipe", "modules", true, true);
-Module['FS_createPath']("/third_party/mediapipe/modules", "hand_landmark", true, true);
 Module['FS_createPath']("/third_party/mediapipe/modules", "palm_detection", true, true);
+Module['FS_createPath']("/third_party/mediapipe/modules", "hand_landmark", true, true);
 
       /** @constructor */
       function DataRequest(start, end, audio) {
@@ -155,7 +157,7 @@ Module['FS_createPath']("/third_party/mediapipe/modules", "palm_detection", true
 
       function processPackageData(arrayBuffer) {
         assert(arrayBuffer, 'Loading data file failed.');
-        assert(arrayBuffer.constructor.name === ArrayBuffer.name, 'bad input to processPackageData');
+        assert(arrayBuffer instanceof ArrayBuffer, 'bad input to processPackageData');
         var byteArray = new Uint8Array(arrayBuffer);
         var curr;
         // Reuse the bytearray from the XHR as the source for file reads.
@@ -187,6 +189,6 @@ Module['FS_createPath']("/third_party/mediapipe/modules", "palm_detection", true
     }
 
     }
-    loadPackage({"files": [{"filename": "/third_party/mediapipe/modules/hand_landmark/handedness.txt", "start": 0, "end": 11}, {"filename": "/third_party/mediapipe/modules/palm_detection/palm_detection_full.tflite", "start": 11, "end": 2341291}, {"filename": "/third_party/mediapipe/modules/palm_detection/palm_detection_lite.tflite", "start": 2341291, "end": 4326731}], "remote_package_size": 4326731});
+    loadPackage({"files": [{"filename": "/third_party/mediapipe/modules/palm_detection/palm_detection_lite.tflite", "start": 0, "end": 1985440}, {"filename": "/third_party/mediapipe/modules/palm_detection/palm_detection_full.tflite", "start": 1985440, "end": 4326720}, {"filename": "/third_party/mediapipe/modules/hand_landmark/handedness.txt", "start": 4326720, "end": 4326731}], "remote_package_size": 4326731, "package_uuid": "f2b11ac8-0259-41a9-b49f-d0fb8d91f87d"});
 
   })();
