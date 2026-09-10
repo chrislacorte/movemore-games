@@ -22,10 +22,24 @@ export class AudioBus {
   private lastSwish = 0
   muted = localStorage.getItem(MUTE_KEY) === '1'
 
-  /** Must be called from a user gesture. */
+  /** True while the browser still needs a tap/click before sound may play. */
+  get suspended(): boolean {
+    return !this.ctx || this.ctx.state !== 'running'
+  }
+
+  /**
+   * Creates the context (allowed without a gesture, but it starts suspended in most browsers)
+   * and resumes it. Call again from any user gesture to actually unlock playback.
+   */
   async unlock(): Promise<void> {
     if (this.ctx) {
-      if (this.ctx.state === 'suspended') await this.ctx.resume()
+      if (this.ctx.state === 'suspended') {
+        try {
+          await this.ctx.resume()
+        } catch {
+          /* still needs a gesture */
+        }
+      }
       return
     }
     const Ctx = window.AudioContext ?? (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext
@@ -37,6 +51,13 @@ export class AudioBus {
     this.musicGain.gain.value = 0.28
     this.musicGain.connect(this.master)
     void this.loadAll()
+    if (this.ctx.state === 'suspended') {
+      try {
+        await this.ctx.resume()
+      } catch {
+        /* needs a gesture */
+      }
+    }
   }
 
   private async loadAll(): Promise<void> {

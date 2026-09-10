@@ -96,6 +96,7 @@ export class Hud {
           <div><b>Index finger</b> is your blade — swipe fast through the fruit</div>
           <div><b>3+ fruits</b> in one swipe = combo · <b>bombs</b> are bad news</div>
           <div class="muted">No camera? Click &amp; drag with the mouse.</div>
+          <div class="muted sound-hint hidden">🔈 Tap or click once to enable sound</div>
         </div>
         <div class="mode-buttons">
           ${(Object.keys(MODES) as GameMode[])
@@ -162,6 +163,10 @@ export class Hud {
 
   setMuted(muted: boolean): void {
     this.muteBtn.textContent = muted ? '🔇' : '🔊'
+  }
+
+  setSoundHint(visible: boolean): void {
+    this.menu.querySelector('.sound-hint')?.classList.toggle('hidden', !visible)
   }
 
   // ---------------------------------------------------------------- loading

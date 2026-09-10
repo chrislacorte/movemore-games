@@ -7,7 +7,7 @@ import { fileURLToPath } from 'node:url'
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const root = path.resolve(__dirname, '..')
 
-const VALID = new Set(['all', 'landing', 'fruitysamurai', 'pingpong', 'shooter', 'snake', 'pacman', 'tetris', 'lightpainter'])
+const VALID = new Set(['all', 'landing', 'fruitysamurai', 'fruitysamurai-proto', 'fruitninja3d', 'pingpong', 'shooter', 'snake', 'pacman', 'tetris', 'lightpainter'])
 const target = process.argv[2] ?? 'all'
 
 if (!VALID.has(target)) {

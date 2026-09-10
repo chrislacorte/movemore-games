@@ -59,6 +59,7 @@ npm run deploy
 # Deploy only one game (requires dist/ from a prior full build)
 npm run deploy:pingpong
 npm run deploy:fruitysamurai
+npm run deploy:fruitninja3d
 npm run deploy:shooter
 npm run deploy:snake
 npm run deploy:tetris
@@ -87,6 +88,38 @@ Default Pages URL: **https://movemore-games.pages.dev**
 | `/snake/` | Hand Snake |
 | `/pacman/` | Hand Pacman |
 | `/tetris/` | Falling Blocks (inspired by tetris) |
+
+## Wavedash (Fruity Samurai)
+
+The Cloudflare Pages build is unchanged (`/fruitysamurai/`). Wavedash needs a **relative** `dist/` (`base: './'`) plus `Wavedash.init()`. Root-absolute `/img/...` URLs 404 inside the play iframe.
+
+Listing: [Fruity Samurai 3D](https://wavedash.com/dev-portal/thechrislacorte/fruity-samurai-3d) (`game_id` in [`games/fruity-samurai/wavedash.toml`](games/fruity-samurai/wavedash.toml)).
+
+```bash
+cd games/fruity-samurai
+npm run build:wavedash   # Vite base `./`, no PWA, drops Cloudflare `_redirects`/`_headers`
+npm run wd:dev           # local sandbox (Wavedash CLI)
+wavedash build push -m "Current Fruity Samurai (MoveMore)"
+wavedash publish <BUILD_ID> --yes
+```
+
+Latest uploaded build: `mn779z9n81ea7g0n6hnbyvf72d8e38g6`  
+Playtest: https://wavedash.com/playtest/fruity-samurai-3d/72d4599a-25be-40d7-8d4a-2e61ab931577
+
+`wavedash publish` stays blocked until the store page in the Developer Portal has:
+
+- description (≥ 80 characters)
+- square cover art (1:1)
+- thumbnail video
+- at least one tag, input method, and language
+
+Then run `wavedash publish mn779z9n81ea7g0n6hnbyvf72d8e38g6 --yes` (or publish that build from the Builds tab).
+
+Create a **numeric, descending** leaderboard named `fruity-samurai-highscore` (or set `VITE_WAVEDASH_LEADERBOARD_NAME`). The first `getOrCreateLeaderboard` call can create it — set it **Visible** if it was Hidden.
+
+Do not put a Wavedash API key in the game. The injected SDK authenticates the signed-in player. Highscores still save to `localStorage` when the SDK is missing (local Vite / Cloudflare).
+
+Wavedash allows **one leaderboard entry per account**. Splitscreen uploads the higher of the two scores under the signed-in user and stores both typed names in entry metadata.
 
 ## Branding
 

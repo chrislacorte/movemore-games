@@ -7,6 +7,7 @@ Motion-controlled webcam games hosted on Cloudflare Pages.
 | URL | Game |
 |-----|------|
 | `/` | Landing page |
+| `/fruitninja3d/` | Fruit Ninja 3D — precise index-finger blade, physically sliced 3D fruit, combos & bombs |
 | `/fruitysamurai/` | Fruity Samurai — slice fruits with hand tracking |
 | `/pingpong/` | Ping Pong — wrist-controlled pong vs AI |
 | `/shooter/` | Hand Shooter — aim and pinch to fire |
@@ -32,13 +33,15 @@ npm run deploy         # deploy all to Cloudflare
 | `npm run dev` | Landing page; game cards open built apps from `dist/` |
 | `npm run pages:dev` | Full site preview matching production routing |
 | `npm run dev:snake` | Develop a single game in isolation |
+| `npm run dev:fruitninja3d` | Develop Fruit Ninja 3D in isolation (`http://localhost:5173/fruitninja3d/`) |
 
-See [DEPLOY.md](DEPLOY.md) for per-game deploys and custom domain setup.
+See [DEPLOY.md](DEPLOY.md) for per-game deploys, custom domains, and hosting Fruity Samurai on Wavedash.
 
 ## Project structure
 
 ```
 apps/landing/           Landing page
+games/fruit-ninja-3d/   Fruit Ninja 3D (Three.js + MediaPipe Tasks HandLandmarker)
 games/fruity-samurai/   Fruity Samurai
 games/pingpong/         Ping Pong
 games/shooter/          Hand Shooter

@@ -6,7 +6,7 @@ import { fileURLToPath } from 'node:url'
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
 const distRoot = path.join(root, 'dist')
 
-const GAME_SLUGS = ['fruitysamurai', 'pingpong', 'shooter', 'snake', 'pacman', 'tetris', 'lightpainter']
+const GAME_SLUGS = ['fruitysamurai', 'fruitysamurai-proto', 'fruitninja3d', 'pingpong', 'shooter', 'snake', 'pacman', 'tetris', 'lightpainter']
 
 const missing = GAME_SLUGS.filter(
   (slug) => !existsSync(path.join(distRoot, slug, 'index.html')),

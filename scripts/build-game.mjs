@@ -18,6 +18,16 @@ const GAMES = {
     dir: 'games/fruity-samurai',
     outSlug: 'fruitysamurai',
   },
+  'fruitysamurai-proto': {
+    workspace: '@movemore/fruity-samurai-proto',
+    dir: 'games/fruity-samurai-proto',
+    outSlug: 'fruitysamurai-proto',
+  },
+  fruitninja3d: {
+    workspace: '@movemore/fruit-ninja-3d',
+    dir: 'games/fruit-ninja-3d',
+    outSlug: 'fruitninja3d',
+  },
   pingpong: {
     workspace: '@movemore/pingpong',
     dir: 'games/pingpong',
@@ -99,7 +109,9 @@ function copyDir(src, dest) {
 }
 
 function writeCloudflareConfig(distRoot) {
-  const redirects = `/fruitysamurai/*  /fruitysamurai/index.html  200
+  const redirects = `/fruitysamurai-proto/*  /fruitysamurai-proto/index.html  200
+/fruitysamurai/*  /fruitysamurai/index.html  200
+/fruitninja3d/*   /fruitninja3d/index.html   200
 /pingpong/*       /pingpong/index.html       200
 /shooter/*        /shooter/index.html        200
 /snake/*          /snake/index.html          200
@@ -133,11 +145,51 @@ function writeCloudflareConfig(distRoot) {
 /fruitysamurai/mediapipe/hands/*.wasm
   Content-Type: application/wasm
 
+/fruitysamurai-proto/mediapipe/hands/*.wasm
+  Content-Type: application/wasm
+
 /assets/*
   Cache-Control: public, max-age=31536000, immutable
 
 /fruitysamurai/assets/*
   Cache-Control: public, max-age=31536000, immutable
+
+/fruitysamurai-proto/sw.js
+  Cache-Control: no-cache
+
+/fruitysamurai-proto/workbox-*.js
+  Cache-Control: no-cache
+
+/fruitysamurai-proto/manifest.webmanifest
+  Cache-Control: public, max-age=86400
+  Content-Type: application/manifest+json
+
+/fruitysamurai-proto/mediapipe/hands/*.wasm
+  Content-Type: application/wasm
+
+/fruitysamurai-proto/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/fruitysamurai-proto/models/*.glb
+  Content-Type: model/gltf-binary
+  Cache-Control: public, max-age=31536000, immutable
+
+/fruitninja3d/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/fruitninja3d/mediapipe/wasm/*.wasm
+  Content-Type: application/wasm
+
+/fruitninja3d/mediapipe/models/*.task
+  Content-Type: application/octet-stream
+  Cache-Control: public, max-age=31536000, immutable
+
+/fruitninja3d/models/fruits/*.glb
+  Content-Type: model/gltf-binary
+  Cache-Control: public, max-age=31536000, immutable
+
+/fruitninja3d/draco/*.wasm
+  Content-Type: application/wasm
 
 /pingpong/assets/*
   Cache-Control: public, max-age=31536000, immutable

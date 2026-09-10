@@ -8,7 +8,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const root = path.resolve(__dirname, '..')
 const distRoot = path.join(root, 'dist')
 
-const targets = ['landing', 'fruitysamurai', 'pingpong', 'shooter', 'snake', 'pacman', 'tetris', 'lightpainter']
+const targets = ['landing', 'fruitysamurai', 'fruitysamurai-proto', 'fruitninja3d', 'pingpong', 'shooter', 'snake', 'pacman', 'tetris', 'lightpainter']
 
 fs.rmSync(distRoot, { recursive: true, force: true })
 fs.mkdirSync(distRoot, { recursive: true })

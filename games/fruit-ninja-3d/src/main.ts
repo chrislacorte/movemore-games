@@ -40,10 +40,15 @@ async function boot(): Promise<void> {
   hud.setMuted(audio.muted)
   hud.setCameraState('off')
 
-  // Audio must be unlocked by a gesture.
+  // Create the audio context right away (starts buffering); browsers still need one gesture to resume it.
+  void audio.unlock()
   const unlock = () => void audio.unlock()
   window.addEventListener('pointerdown', unlock, { passive: true })
   window.addEventListener('keydown', unlock)
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && game && game.state !== 'menu') game.enterMenu()
+    if (e.key.toLowerCase() === 'm') hud.setMuted(audio.toggleMute())
+  })
 
   async function startCamera(): Promise<void> {
     hud.setCameraState('starting')
@@ -85,6 +90,7 @@ async function boot(): Promise<void> {
     stage.render()
 
     if (frame % 2 === 0 && tracker.running) hud.drawTracking(tracker.landmarkSets(), tracker.stats)
+    if (frame % 30 === 0) hud.setSoundHint(audio.suspended && !audio.muted)
     requestAnimationFrame(loop)
   }
   requestAnimationFrame(loop)

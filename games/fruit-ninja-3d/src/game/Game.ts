@@ -74,9 +74,9 @@ export class Game {
     return t
   }
 
-  private makeFruit(kind: FruitKind): Fruit {
+  private makeFruit(kind: FruitKind, sizeMul = 1): Fruit {
     const t = this.template(kind)
-    const scale = (TUNING.fruitRadius * t.def.size) / t.radius
+    const scale = (TUNING.fruitRadius * t.def.size * sizeMul) / t.radius
     const fruit = new Fruit(t, scale)
     this.fruits.push(fruit)
     this.stage.scene.add(fruit.mesh)
@@ -125,7 +125,7 @@ export class Game {
     const width = b.right - b.left
     const spread = Math.min(width * 0.3, 6.5)
     items.forEach((item, i) => {
-      const fruit = this.makeFruit(item.kind)
+      const fruit = this.makeFruit(item.kind, 1.25)
       fruit.floating = true
       fruit.tag = `${item.tag}|${item.label}`
       const x = items.length === 1 ? 0 : lerp(-spread, spread, i / (items.length - 1))
@@ -133,7 +133,6 @@ export class Game {
       fruit.pos.set(x, fruit.baseY, PLAY_Z)
       fruit.spin.set(0.15, 0.7, 0.05)
       fruit.entered = true
-      fruit.mesh.scale.setScalar(fruit.scale * 1.25)
       fruit.update(0, 0)
     })
   }
